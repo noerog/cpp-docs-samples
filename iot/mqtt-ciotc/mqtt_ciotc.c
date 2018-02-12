@@ -239,6 +239,7 @@ static const char* kUsername = "unused";
  */
 // [START iot_mqtt_publish]
 int Publish(char* payload, int payload_size) {
+  // [START iot_mqtt_client_auth]
   int rc = -1;
   MQTTClient client = {0};
   MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
@@ -261,6 +262,7 @@ int Publish(char* payload, int payload_size) {
       printf("Failed to connect, return code %d\n", rc);
       exit(EXIT_FAILURE);
   }
+  // [END iot_mqtt_client_auth]
 
   pubmsg.payload = payload;
   pubmsg.payloadlen = payload_size;
